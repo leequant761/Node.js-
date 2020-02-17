@@ -1,0 +1,17 @@
+<!-- AJAX 요청을 보낼 때 주소에 한글이 들어가는 경우 -->
+<script>
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() { // 요청에 대한 콜백
+        if (xhr.readyState === xhr.DONE) {
+            if (xhr.status === 200 || xhr.status === 201) {
+                console.log(xhr.responseText);
+            }
+            else {
+                console.error(xhr.responseText);
+            }
+        }
+    }
+    xhr.open('GET', 'https://www.zerocho.com/api/search/' + encodeURIComponent('노드'));
+    xhr.send(); // 요청 전송
+    console.log(decodeURIComponent('%EB%85%B8%EB%93%9C'))
+</script>

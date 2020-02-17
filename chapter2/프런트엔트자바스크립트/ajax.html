@@ -1,0 +1,30 @@
+<script>
+    var xhr = new XMLHttpRequest(); // xhr 객체 생성
+    xhr.onreadystatechange = function() { // 이벤트 리스너에 요청에 대한 콜백 정의
+        if (xhr.readyState === xhr.DONE){ // 요청이 완료되면
+            if (xhr.status === 200 || xhr.status === 201) { // 응답코드가 200이나 201이면
+                console.log(xhr.responseText); // 서버에서 보내준 값
+            } else {
+                console.error(xhr.responseText);
+            }
+        } 
+
+    };
+    xhr.open('GET' , 'https://www.zerocho.com/api/get'); // 메서드와 주소 설정
+    xhr.send(); // 요청 전송
+</script>
+
+<!-- onreadystatechange vs onload & onerror -->
+<!-- <script>
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function() {
+        if (xhr.status === 200 || xhr.status === 201) {
+            console.log(xhr.responseText);
+        }
+    };
+    xgr.onerror = function() {
+        console.error(xhr.responseText);
+    };
+    xhr.open('GET' , 'https://www.zerocho.com/api/get');
+    xhr.send();
+</script> -->
