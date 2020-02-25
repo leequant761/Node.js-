@@ -16,9 +16,9 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug'); // pug 템플릿 엔진 사용
 
 app.use(logger('dev'));
-app.use(express.json());
+app.use(express.json()); // body parser
+app.use(express.urlencoded({ extended: false })); // body parser
 app.use(express.static(path.join(__dirname, 'public'))); // 쿠키에 맞는 서비스를 하려면 쿠키파서 뒤에 위치
-app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser('secret code'));
 app.use(session({
   resave: false, // 요청이 왔을 때 세션에 수정사항이 생기지 않더라도 재저장 할래?
