@@ -2,3 +2,5 @@
 **/.vscode
 **/config
 chapter9/nodebird/.env
+chapter10/nodebird-api/.env
+**/.env
